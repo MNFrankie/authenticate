@@ -19,11 +19,13 @@ public function postSignIn() {
 				->withErrors($validator)
 				->withInput();
 	} else{
+
+		$remember = (Input::has('remember')) ? true : false;
 		$auth = Auth::attempt(array(
 			'email' => Input::get('email'),
 			'password' => Input::get('password'),
 			'active' => 1
-		));
+		) $remember);
 
 		if($auth) {
 			//redirects to the intended page
