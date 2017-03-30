@@ -1,7 +1,9 @@
 
 
 
-
+public function getSignIn() {
+	return View::make('account.signin');
+}
 
 
 
